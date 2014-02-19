@@ -53,10 +53,17 @@ Tft.init();  //init TFT library
  Tft.drawRectangle(30, 160, 60, 60,RED);
  float objt = tmp006.readObjTempC();   delay(4000); // 4 seconds per reading for 16 samples per reading
  String myString = String(objt);
-   Tft.drawString(,35,165,2,CYAN);
-}
+ char charBuf[4];
+ myString.toCharArray(charBuf,4);
+   Tft.drawString(charBuf,35,165,2,CYAN);
+   }
 
 void loop()
-{
-  
+{delay(4000);
+   Tft.fillRectangle(30, 160, 60, 60,BLACK);
+ float objt = tmp006.readObjTempC();    // 4 seconds per reading for 16 samples per reading
+ String myString = String(objt);
+ char charBuf[4];
+ myString.toCharArray(charBuf,4);
+   Tft.drawString(charBuf,35,165,2,CYAN);
 }
